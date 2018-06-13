@@ -1,0 +1,70 @@
+[
+  { 
+    "front": "What is a controlled input (react)",
+    "back": [
+      "class Form extends Component {",
+      "\t handleSubmitClick = () => {",
+      "\t\t const name = \bthis._name.value;\b",
+      "\t\t // do something with `name`",
+      "\t }",
+      "\n",
+      "\t render() {",
+      "\t\t return (",
+      "\t\t\t <div>",
+      "\t\t\t\t <input type=\"text\" \bref={input => this._name = input\b} />",
+      "\t\t\t\t <button onClick={this.handleSubmitClick}>Sign up</button>",
+      "\t\t\t </div>",
+      "\t\t );",
+      "\t }",
+      "}"
+    ],
+    "date": "06 may 2018",
+    "link": ["https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/"],
+    "image": "image.jpg",
+    "tags": ["javascript", "react"]
+  },
+  { 
+    "front": "require a function in node.js",
+    "back": [],
+    "date": "06 may 2018",
+    "link": [],
+    "image": "image.jpg",
+    "tags": ["javascript", "nodejs"]
+  },
+  { 
+    "front": "Asynchronous nodejs module exports",
+    "back": [],
+    "date": "06 may 2018",
+    "link": [],
+    "image": "image.jpg",
+    "tags": ["javascript", "nodejs"]
+  },
+  { 
+    "front": "Asynchronous nodejs module exports",
+    "back": [],
+    "date": "06 may 2018",
+    "link": [],
+    "image": "image.jpg"
+  },
+  { 
+    "front": " length of an object",
+    "back": ["var size = Object.keys(myObj).length;"],
+    "date": "06 may 2018",
+    "link": ["https://stackoverflow.com/questions/5223/length-of-a-javascript-object"],
+    "image": "image.jpg"
+  },
+  {
+    "front": "How do I check if a JavaScript array value is empty or null?",
+    "back": ["arr.length > 0"],
+    "date": "06 may 2018",
+    "link": ["https://stackoverflow.com/questions/2672380/how-do-i-check-if-a-javascript-array-value-is-empty-or-null"],
+    "image": "image.jpg"
+  },
+  {
+    "front": "A Ship in harbour is safe but that is not what ships are build for",
+    "back": [],
+    "date": "06 may 2018",
+    "link": [],
+    "image": ""
+  }
+]
