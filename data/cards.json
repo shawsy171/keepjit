@@ -24,6 +24,14 @@
     "tags": ["javascript", "react"]
   },
   { 
+    "front": "What is a uncontrolled input (react)",
+    "back": [],
+    "date": "06 may 2018",
+    "link": [],
+    "image": "image.jpg",
+    "tags": ["javascript", "react"]
+  },
+  { 
     "front": "require a function in node.js",
     "back": [],
     "date": "06 may 2018",
@@ -66,5 +74,29 @@
     "date": "06 may 2018",
     "link": [],
     "image": ""
+  },
+  {
+    "front": "How do you reverse a javascript array",
+    "back": [
+        "var array1 = ['one', 'two', 'three'];",
+        "var reversed = array1.reverse();",
+        "\n",
+        "console.log(array1);",
+        "// expected output: Array ['three', 'two', 'one']],"
+      ],
+      "date": "14 june 2018",
+      "link": ["javascript", "array", "method"],
+      "image": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse"
+  },
+  {
+    "front": "How do you connect to a mongoDB",
+    "back": ["step 1 - get mongoClient",
+        ""
+        
+      ],
+      "date": "15 june 2018",
+      "link": ["javascript", ""],
+      "image": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse"
   }
 ]
+

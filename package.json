@@ -1,0 +1,27 @@
+{
+  "name": "keepjit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run build:live",
+    "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- ./src/server/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shawsy171/keepjit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shawsy171/keepjit/issues"
+  },
+  "homepage": "https://github.com/shawsy171/keepjit#readme",
+  "devDependencies": {
+    "@types/node": "^10.3.3",
+    "nodemon": "^1.17.5",
+    "ts-node": "^6.1.1",
+    "typescript": "^2.9.2"
+  }
+}
