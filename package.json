@@ -23,5 +23,8 @@
     "nodemon": "^1.17.5",
     "ts-node": "^6.1.1",
     "typescript": "^2.9.2"
+  },
+  "dependencies": {
+    "tslint": "^5.10.0"
   }
 }
