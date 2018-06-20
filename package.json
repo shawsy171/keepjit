@@ -25,6 +25,7 @@
     "typescript": "^2.9.2"
   },
   "dependencies": {
+    "mongodb": "^3.0.10",
     "tslint": "^5.10.0"
   }
 }
