@@ -4,5 +4,9 @@ export interface DBQuery {
 
 export interface DBConnection {
   dbConnection: any;
-  client: any
+  dbClient: any;
+}
+
+export interface newCard {
+  [prop: string]: any;
 }
