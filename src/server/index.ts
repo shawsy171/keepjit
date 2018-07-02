@@ -1,4 +1,4 @@
-import { connectToMongoDB, findDocuments, addOneDocument } from './../../database/db';
+import { connectToMongoDB, findDocuments, addOneDocument, updateDocument } from './../../database/db';
 import express from 'express';
 
 const HOST = '';
@@ -12,9 +12,14 @@ app.get('/', (req, res) => {
   res.send(' this is working ');
 })
 
-app.get('/add-one', (req, res) => {
+app.get('/add', (req, res) => {
   addOneDocument({ tourName: 'Testing 1 2 3'});
   res.send('document added');
+})
+
+app.get('/update', (req, res) => {
+  updateDocument();
+  res.send('document updated');
 })
 
 app.listen(PORT, () => {

@@ -7,4 +7,3 @@ A flash card site to help you remember the things you have learned
 ```bash
 npm start
 ```
-

@@ -1,5 +1,6 @@
 import { DBQuery, DBConnection, newCard } from './db.interface';
 const MongoClient = require('mongodb').MongoClient;
+import { ObjectId } from 'mongodb'; 
 
 const url = 'mongodb://localhost:27017';
 
@@ -14,8 +15,6 @@ let isConnecting: boolean;
 export const connectToMongoDB = () : Promise<DBConnection | string> => {
 
   return new Promise((resolve: any, reject: any) : void => {
-    // console.log('Start', { dbConnection, dbClient });
-    console.log('isConnecting', isConnecting);
     
     if (dbClient) {
       isConnecting = false;
@@ -73,3 +72,23 @@ export const addOneDocument = (newDocument: newCard) : void => {
       console.log(err);
     })
 }
+
+export const updateDocument = () : void => {
+  connectToMongoDB()
+    .then((result) : void => {
+      if (typeof result !== 'string') {
+        const { dbConnection, dbClient } = result;
+      
+        const collection = dbConnection.collection(collectionName);
+    
+        collection.update({_id: new ObjectId("5b3030a7c9759f877c3cea22")}, {
+          $set: {
+            tourName: 'Updated Name'
+          }
+        })
+      }
+    }).catch((err) => {
+      console.log(err);
+    })
+}
+// "_id" : ObjectId("5b3030a7c9759f877c3cea22"),
