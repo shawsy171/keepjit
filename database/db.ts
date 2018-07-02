@@ -91,4 +91,3 @@ export const updateDocument = () : void => {
       console.log(err);
     })
 }
-// "_id" : ObjectId("5b3030a7c9759f877c3cea22"),
