@@ -4,9 +4,7 @@ import { connectToMongoDB, findDocuments, addOneDocument, updateDocument } from 
 
 const dev = process.env.NODE_ENV !== 'production'
 
-// const dev = { dev: true } || { dev: false }
 const PORT = 6070
-// const server = express();
 const app = next({ dev })
 const handler = app.getRequestHandler(); // <-- what does this do? 
 
@@ -30,6 +28,10 @@ app.prepare()
     server.get('/update', (req, res) => {
       updateDocument();
       res.send('document updated');
+    })
+    
+    server.get('*', (req, res) => {
+      return handler(req, res);
     })
 
     server.listen(PORT, () => {
