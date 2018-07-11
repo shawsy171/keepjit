@@ -6,16 +6,18 @@ type HTMLElementEvent<T extends HTMLElement> = Event & {
   // probably you might want to add the currentTarget as well
   // currentTarget: T;
 }
+
+interface FormControlEventTarget extends EventTarget{
+  value: string;
+}
 class Form extends React.Component {
   state = {
     message: 'hewwo',
     input: ''
   }
 
-  handleInputChange = (e: HTMLElementEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
-    // const input = (e.target as HTMLInputElement);
-    const input = e.currentTarget;
+  handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const input = (e.target as FormControlEventTarget);
     this.setState(() => ({
       message: input.value
     }))
@@ -23,20 +25,18 @@ class Form extends React.Component {
 
   render () {
     return (
-      <div>
-        <form>
-          <label>
-            <span>Title</span>
-            <input 
-              type="text"
-              id='title'
-              value={this.state.input} 
-              onChange={this.handleInputChange}
-            />
-            <p>{this.state.message}</p>
-          </label>
-        </form>
-      </div>
+      <form>
+        <label>
+          <span>Title</span>
+          <input 
+            type="text"
+            id='title'
+            value={this.state.input} 
+            onChange={this.handleInputChange}
+          />
+          <p>{this.state.message}</p>
+        </label>
+      </form>
     )
   }
 }
