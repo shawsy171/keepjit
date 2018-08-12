@@ -1,5 +1,18 @@
-[
-  { 
+const MongoClient = require('mongodb').MongoClient;
+
+const url = 'mongodb://localhost:27017/';
+
+const dbName = 'flashCards';
+let dbCollectionName = 'cards';
+
+MongoClient.connect(url + dbName, (err, client) => {
+  if (err) {
+    console.log('Database Connection error: ' + err);
+  };
+
+  dbConnection = client.db(dbName);
+
+  dbConnection.collection(dbCollectionName).insertMany([{ 
     "front": "What is a controlled input (react)",
     "back": [
       "class Form extends Component {",
@@ -48,13 +61,6 @@
     "tags": ["javascript", "nodejs"]
   },
   { 
-    "front": "Asynchronous nodejs module exports",
-    "back": [],
-    "date": "06 may 2018",
-    "links": [],
-    "image": "image.jpg"
-  },
-  { 
     "front": " length of an object",
     "back": ["var size = Object.keys(myObj).length;"],
     "date": "06 may 2018",
@@ -98,5 +104,8 @@
       "links": ["javascript", ""],
       "image": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse"
   }
-]
+])
 
+  console.log(`Connected to: ${dbName} on ${url + dbName}`);
+  
+})

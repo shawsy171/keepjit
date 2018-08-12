@@ -1,6 +1,5 @@
 import { DBQuery, DBConnection, newCard } from './db.interface';
-const MongoClient = require('mongodb').MongoClient;
-import { ObjectId } from 'mongodb'; 
+import { ObjectId, MongoClient } from 'mongodb'; 
 
 const url = 'mongodb://localhost:27017';
 
@@ -38,24 +37,28 @@ export const connectToMongoDB = () : Promise<DBConnection | string> => {
   })
 }
 
-export const findDocuments = (query: DBQuery) : void => {
+export const findDocuments = (query: DBQuery, res: any) : void => {
   connectToMongoDB()
     .then((result) : void => {
       if (typeof result !== 'string') {
         const { dbConnection, dbClient } = result;
-      
+        
+        // get access to the collection in the database
         const collection = dbConnection.collection(collectionName);
-    
+        
+        // find all documents
         collection.find(query).toArray((err: any, docs: any) => {
           if (err) ('Database error: ' + err);
-          console.log(docs.length);
+
           dbClient.close();
-        })
+          // send docs
+          res.send(docs);
+          return docs;
+        });
       }
     }).catch((err) => {
       console.log(err);
-    })
-  
+    });
 }
 
 export const addOneDocument = (newDocument: newCard) : void => {

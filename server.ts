@@ -1,5 +1,7 @@
 import express from 'express';
 import next from 'next';
+import apiRouter from './api/index';
+
 import { connectToMongoDB, findDocuments, addOneDocument, updateDocument } from './database/db';
 
 const dev = process.env.NODE_ENV !== 'production'
@@ -14,10 +16,10 @@ app.prepare()
   .then(() => {
     const server = express();
 
+    server.use('/api', apiRouter)
+
     server.get('/', (req, res) => {
-      findDocuments({ tourPrice: 800 });
       app.render(req, res, '/index');
-      // res.send(' this is working ');
     })
     
     server.get('/add', (req, res) => {

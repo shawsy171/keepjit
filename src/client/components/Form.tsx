@@ -12,30 +12,67 @@ interface FormControlEventTarget extends EventTarget{
 }
 class Form extends React.Component {
   state = {
-    message: 'hewwo',
-    input: ''
+    message: 'default message',
+    question: '',
+    answer: ''
   }
 
   handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const input = (e.target as FormControlEventTarget);
     this.setState(() => ({
-      message: input.value
+      question: input.value
+    }))
+  }
+
+  handleTextAreaChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const input = (e.target as FormControlEventTarget);
+    this.setState(() => ({
+      answer: input.value
     }))
   }
 
   render () {
+    const { answer, question, message } = this.state;
     return (
       <form>
         <label>
-          <span>Title</span>
+          <span>Question</span>
           <input 
             type="text"
             id='title'
-            value={this.state.input} 
+            value={question}
             onChange={this.handleInputChange}
           />
-          <p>{this.state.message}</p>
+          <p>{question ? question : message}</p>
         </label>
+        <br/>
+
+        <label>
+          <span>Main Tag*</span>
+          <input type="text" />
+        </label>
+        <br/>
+
+        <label>
+          <span>Tags</span>
+          <input type="text" />
+        </label>
+        <br/>
+
+        <label>
+          <span>Answer</span>
+          <textarea 
+            name="answer" 
+            id="" 
+            cols={30}
+            rows={10}
+            value={answer}
+            onChange={this.handleTextAreaChange}
+          >
+          </textarea>
+        </label>
+        <p>{answer}</p>
+
       </form>
     )
   }
