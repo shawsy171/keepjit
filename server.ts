@@ -16,7 +16,7 @@ app.prepare()
   .then(() => {
     const server = express();
 
-    server.use('/api', apiRouter)
+    server.use('/api', apiRouter);
 
     server.get('/', (req, res) => {
       app.render(req, res, '/index');
