@@ -1,5 +1,5 @@
 export interface DBQuery {
-  tourPrice: number;
+  front?: number;
 }
 
 export interface DBConnection {

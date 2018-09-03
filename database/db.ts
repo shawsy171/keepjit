@@ -3,9 +3,9 @@ import { ObjectId, MongoClient } from 'mongodb';
 
 const url = 'mongodb://localhost:27017';
 
-const dbName = 'learning_mongo';
+const dbName = 'flashCards';
 
-const collectionName = 'tours';
+const collectionName = 'cards';
 
 let dbConnection: any;
 let dbClient: any;

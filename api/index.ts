@@ -9,7 +9,7 @@ const router = express.Router();
  * get all contests
  */
 router.get('/tours', (req: any, res: any) => {
-  findDocuments({ tourPrice: 800 }, res);
+  findDocuments({}, res);
 });
 
 export default router;
