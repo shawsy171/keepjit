@@ -23,17 +23,20 @@
     "@types/mongodb": "^3.1.0",
     "@types/next": "^6.0.4",
     "@types/node": "^10.3.3",
+    "@types/prop-types": "^15.5.5",
+    "@types/react": "^16.4.6",
     "nodemon": "^1.17.5",
     "ts-node": "^6.2.0",
     "typescript": "^2.9.2"
   },
   "dependencies": {
-    "@types/react": "^16.4.6",
     "@zeit/next-typescript": "^1.1.0",
+    "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "isomorphic-unfetch": "^2.1.1",
     "mongodb": "^3.0.10",
     "next": "^6.1.1",
+    "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "tslint": "^5.10.0"

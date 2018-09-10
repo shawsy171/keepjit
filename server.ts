@@ -1,5 +1,6 @@
 import express from 'express';
 import next from 'next';
+import bodyParser from 'body-parser';
 import apiRouter from './api/index';
 
 import { connectToMongoDB, findDocuments, addOneDocument, updateDocument } from './database/db';
@@ -15,6 +16,10 @@ connectToMongoDB();
 app.prepare()
   .then(() => {
     const server = express();
+    server.use(bodyParser.urlencoded({
+      extended: true
+    }));
+    server.use(bodyParser.json());
 
     server.use('/api', apiRouter);
 

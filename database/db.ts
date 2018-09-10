@@ -23,7 +23,7 @@ export const connectToMongoDB = () : Promise<DBConnection | string> => {
     if (!isConnecting) {
       isConnecting = true;
 
-      MongoClient.connect(url, (err: any, client: any) : void => {
+      MongoClient.connect(url, { useNewUrlParser: true }, (err: any, client: any) : void => {
         if (err) reject('Database Connection error: ' + err);
   
         dbClient = client;

@@ -1,5 +1,5 @@
 import React from 'react';
-import Form from './../src/client/components/Form';
+import Form from '../src/client/components/Form/Form';
 import fetch from 'isomorphic-unfetch';
 import config from './../config/config';
 
@@ -27,10 +27,8 @@ const Index : StatelessPage<IndexProps> = (props : IndexProps) : JSX.Element => 
 // turn this in to arrow function
 Index.getInitialProps = async function() {
 
-  const res = await fetch(config.API_URL + '/tours');
+  const res = await fetch(config.API_URL + '/cards');
   const data = await res.json();
-
-  console.log(`Show data fetched. Count: ${JSON.stringify(data, null, 2)}`)
 
   return {
     cards: data

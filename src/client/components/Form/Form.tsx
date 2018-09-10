@@ -1,4 +1,9 @@
-import React, { InputHTMLAttributes } from 'react';
+import React from 'react';
+import fetch from 'isomorphic-unfetch';
+import config from '../../../../config/config';
+
+// components
+import TextInput from '../TextInput/TextInput';
 
 type HTMLElementEvent<T extends HTMLElement> = Event & {
   target: T;
@@ -15,6 +20,28 @@ class Form extends React.Component {
     message: 'default message',
     question: '',
     answer: ''
+  }
+  // "front": "What is a uncontrolled input (react)",
+  //   "back": [],
+  //   "date": "06 may 2018",
+  //   "links": [],
+  //   "image": "image.jpg",
+  //   "tags": ["javascript", "react"]
+  handleSubmit = async (event: any) => {
+    event.preventDefault();
+
+    console.log('A Question was submitted: ' + this.state.question);
+
+      const res = await fetch(config.API_URL + '/add-card', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(this.state)
+      });
+      // const data = await res.json();
+
+    // console.log(`Show data fetched. Count: ${data}`)
   }
 
   handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -33,18 +60,14 @@ class Form extends React.Component {
 
   render () {
     const { answer, question, message } = this.state;
+
     return (
-      <form>
-        <label>
-          <span>Question</span>
-          <input 
-            type="text"
-            id='title'
-            value={question}
-            onChange={this.handleInputChange}
-          />
-          <p>{question ? question : message}</p>
-        </label>
+      <form onSubmit={this.handleSubmit}>
+        <TextInput 
+          name="Question / Front"
+          value={question}
+          InputChange={this.handleInputChange}
+        />
         <br/>
 
         <label>
@@ -72,7 +95,7 @@ class Form extends React.Component {
           </textarea>
         </label>
         <p>{answer}</p>
-
+        <input type="submit" value="Submit" />
       </form>
     )
   }
