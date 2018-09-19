@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run build:live",
-    "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- ./server.ts --jsx"
+    "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- ./server.ts --jsx",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -20,12 +21,15 @@
   "homepage": "https://github.com/shawsy171/keepjit#readme",
   "devDependencies": {
     "@types/express": "^4.16.0",
+    "@types/jest": "^23.3.2",
     "@types/mongodb": "^3.1.0",
     "@types/next": "^6.0.4",
     "@types/node": "^10.3.3",
     "@types/prop-types": "^15.5.5",
     "@types/react": "^16.4.6",
+    "jest-cli": "^23.6.0",
     "nodemon": "^1.17.5",
+    "ts-jest": "^23.10.0",
     "ts-node": "^6.2.0",
     "typescript": "^2.9.2"
   },
