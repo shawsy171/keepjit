@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// styles
+import { InputLabelSt, InputSt } from './TextInput.styles';
+
 interface TextInputProps {
   name: string;
   value: string;
@@ -9,15 +12,14 @@ interface TextInputProps {
 
 const TextInput: React.SFC<TextInputProps> = ({ name, value, InputChange }) => {
   return (
-    <label>
+    <InputLabelSt>
       <span>{name}</span>
-      <input 
+      <InputSt 
         type="text"
         value={value}
         onChange={InputChange}
       />
-      <p>{value ? value : "hello im not being used message"}</p>
-    </label>
+    </InputLabelSt>
   )
 }
 

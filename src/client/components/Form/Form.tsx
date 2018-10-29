@@ -5,28 +5,16 @@ import config from '../../../../config/config';
 // components
 import TextInput from '../TextInput/TextInput';
 
-type HTMLElementEvent<T extends HTMLElement> = Event & {
-  target: T;
-  currentTarget: T;
-  // probably you might want to add the currentTarget as well
-  // currentTarget: T;
-}
-
-interface FormControlEventTarget extends EventTarget{
-  value: string;
-}
+//interfaces
+import { HTMLElementEvent, FormControlEventTarget } from './interfaces';
 class Form extends React.Component {
   state = {
-    message: 'default message',
     question: '',
-    answer: ''
+    answer: '',
+    tags: '',
+    type: ''
   }
-  // "front": "What is a uncontrolled input (react)",
-  //   "back": [],
-  //   "date": "06 may 2018",
-  //   "links": [],
-  //   "image": "image.jpg",
-  //   "tags": ["javascript", "react"]
+  
   handleSubmit = async (event: any) => {
     event.preventDefault();
 
@@ -44,10 +32,11 @@ class Form extends React.Component {
     // console.log(`Show data fetched. Count: ${data}`)
   }
 
-  handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, inputType: string): void => {
     const input = (e.target as FormControlEventTarget);
+    
     this.setState(() => ({
-      question: input.value
+      [inputType]: input.value
     }))
   }
 
@@ -59,28 +48,27 @@ class Form extends React.Component {
   }
 
   render () {
-    const { answer, question, message } = this.state;
+    const { answer, question, tags, type } = this.state;
 
     return (
       <form onSubmit={this.handleSubmit}>
         <TextInput 
           name="Question / Front"
           value={question}
-          InputChange={this.handleInputChange}
+          InputChange={e => this.handleInputChange(e, 'question')}
         />
-        <br/>
 
-        <label>
-          <span>Main Tag*</span>
-          <input type="text" />
-        </label>
-        <br/>
+        <TextInput 
+          name="Card Type"
+          value={type}
+          InputChange={e => this.handleInputChange(e, 'type')}
+        />
 
-        <label>
-          <span>Tags</span>
-          <input type="text" />
-        </label>
-        <br/>
+        <TextInput 
+          name="tags"
+          value={tags}
+          InputChange={e => this.handleInputChange(e, 'tags')}
+        />
 
         <label>
           <span>Answer</span>
@@ -94,7 +82,6 @@ class Form extends React.Component {
           >
           </textarea>
         </label>
-        <p>{answer}</p>
         <input type="submit" value="Submit" />
       </form>
     )
@@ -102,3 +89,11 @@ class Form extends React.Component {
 }
 
 export default Form;
+
+
+// "front": "What is a uncontrolled input (react)",
+  //   "back": [],
+  //   "date": "06 may 2018",
+  //   "links": [],
+  //   "image": "image.jpg",
+  //   "tags": ["javascript", "react"]

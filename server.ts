@@ -28,7 +28,7 @@ app.prepare()
     })
     
     server.get('/add', (req, res) => {
-      addOneDocument({ tourName: 'Testing 1 2 3'});
+      // addOneDocument({ tourName: 'Testing 1 2 3'});
       res.send('document added');
     })
     

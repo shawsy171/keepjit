@@ -12,9 +12,12 @@ router.get('/cards', (req: any, res: any) => {
   findDocuments({}, res);
 });
 
+/**
+ * Add a new card
+ */
 router.post('/add-card', (req: any, res: any) => {
   console.log("req", req.method, req.body);
-  // addOneDocument()
+  addOneDocument(req.body);
   res.send({name: 'response'});
 });
 

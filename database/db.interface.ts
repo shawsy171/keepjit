@@ -8,5 +8,12 @@ export interface DBConnection {
 }
 
 export interface newCard {
-  [prop: string]: any;
+  question: string,
+  answer: string,
+  tags: string,
+  type: string
 }
+// export interface newCard {
+//   [prop: string]: any;
+// }
+
