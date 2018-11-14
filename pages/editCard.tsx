@@ -12,7 +12,9 @@ class EditCard extends Component {
   state = DEFAULT_STATE;
 
   async componentDidMount () {
-    const id = window.location.pathname.split('/')[2];
+    const paths: string[] = window.location.pathname.split('/')
+    const last = paths.length - 1
+    const id = paths[last];
 
     const res = await fetch(`${config.API_URL}/find-card`, {
       method: 'POST',
@@ -26,6 +28,7 @@ class EditCard extends Component {
     this.setState(() => ({ front, back }))
     console.log({ front, back });
   }
+
   render () {
     const { front, back } = this.state
     return (

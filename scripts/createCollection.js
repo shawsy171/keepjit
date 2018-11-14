@@ -12,7 +12,7 @@ MongoClient.connect(url + dbName, (err, client) => {
 
   dbConnection = client.db(dbName);
 
-  dbConnection.collection(dbCollectionName).insertMany([{ 
+  dbConnection.collection(dbCollectionName).insertMany([{
     "front": "What is a controlled input (react)",
     "back": [
       "class Form extends Component {",
@@ -36,7 +36,7 @@ MongoClient.connect(url + dbName, (err, client) => {
     "image": "image.jpg",
     "tags": ["javascript", "react"]
   },
-  { 
+  {
     "front": "What is a uncontrolled input (react)",
     "back": [],
     "date": "06 may 2018",
@@ -44,7 +44,7 @@ MongoClient.connect(url + dbName, (err, client) => {
     "image": "image.jpg",
     "tags": ["javascript", "react"]
   },
-  { 
+  {
     "front": "require a function in node.js",
     "back": [],
     "date": "06 may 2018",
@@ -52,7 +52,7 @@ MongoClient.connect(url + dbName, (err, client) => {
     "image": "image.jpg",
     "tags": ["javascript", "nodejs"]
   },
-  { 
+  {
     "front": "Asynchronous nodejs module exports",
     "back": [],
     "date": "06 may 2018",
@@ -60,7 +60,7 @@ MongoClient.connect(url + dbName, (err, client) => {
     "image": "image.jpg",
     "tags": ["javascript", "nodejs"]
   },
-  { 
+  {
     "front": " length of an object",
     "back": ["var size = Object.keys(myObj).length;"],
     "date": "06 may 2018",
@@ -98,14 +98,51 @@ MongoClient.connect(url + dbName, (err, client) => {
     "front": "How do you connect to a mongoDB",
     "back": ["step 1 - get mongoClient",
         ""
-        
+
       ],
       "date": "15 june 2018",
       "links": ["javascript", ""],
       "image": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse"
+  },
+  {
+    "front": "<picture> tag",
+    "back": ["<source> </source>"],
+    "date": "15 june 2018",
+    "tags": ["javascript", ""],
+    "links": "https://www.youtube.com/watch?v=reztLS3vomE",
+    "image": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse"
+  },
+  {
+    "front": "arr.slice",
+    "back": [
+      "arr.slice(<end>: number);",
+      "arr.slice(<begin>: number, <end>: number);",
+      "var animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];",
+      "console.log(animals.slice(2));"
+    ],
+    "date": "15 june 2018",
+    "tags": ["javascript", "array"],
+    "links": "https://www.youtube.com/watch?v=reztLS3vomE",
+    "image": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse"
+  },
+  {
+    "front": "arr.splice",
+    "back": [
+      "arr.splice(<start>: number, <deleteCount>: number, <insert>: any)",
+      "deleteCount is the number of items which will be deleted from the array",
+      "var months = ['Jan', 'Feb', 'March', 'April', 'June']",
+      "months.splice(4, 1, 'May'); // replaces 1 element at 4th index",
+      "console.log(months); // expected output: Array ['Jan', 'Feb', 'March', 'April', 'May']"
+    ],
+    "date": "15 june 2018",
+    "tags": ["javascript", "array"],
+    "links": "https://www.youtube.com/watch?v=reztLS3vomE",
+    "image": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse"
   }
 ])
 
+// expected output: Array ["camel", "duck", "elephant"]
   console.log(`Connected to: ${dbName} on ${url + dbName}`);
-  
+  client.close();
+
 })
