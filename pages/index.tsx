@@ -15,16 +15,18 @@ import {
   IndexProps
 } from './interfaces/index';
 
-const Index : StatelessPage<IndexProps> = (props : IndexProps) : JSX.Element => {
+const Index : StatelessPage<IndexProps> = ({ cards } : IndexProps) : JSX.Element => {
+  console.log({ cards })
   return (
     <div>
       <TitleSt>Welcome to keepJit</TitleSt>
       <Nav />
-      {props.cards.map((card, idx) => (
-        <Card 
-          key={idx} 
-          question={card.front} 
-          answer={card.back} 
+      {cards.map((card, idx) => (
+        <Card
+          key={idx}
+          id={card._id}
+          question={card.front}
+          answer={card.back}
         />
       ))}
     </div>
@@ -32,7 +34,7 @@ const Index : StatelessPage<IndexProps> = (props : IndexProps) : JSX.Element => 
 }
 
 // turn this in to arrow function
-Index.getInitialProps = async function() {
+Index.getInitialProps = async () => {
 
   const res = await fetch(config.API_URL + '/cards');
   const data = await res.json();
@@ -41,6 +43,5 @@ Index.getInitialProps = async function() {
     cards: data
   }
 }
-
 
 export default Index;

@@ -5,6 +5,9 @@ import Link from 'next/link';
 function Nav() {
   return (
     <div>
+      <Link href="/index">
+        <a>Home</a>
+      </Link>
       <Link href="/addCard">
         <a>Add Card</a>
       </Link>

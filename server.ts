@@ -9,7 +9,7 @@ const dev = process.env.NODE_ENV !== 'production'
 
 const PORT = 6070
 const app = next({ dev })
-const handler = app.getRequestHandler(); // <-- what does this do? 
+const handler = app.getRequestHandler(); // <-- what does this do?
 
 connectToMongoDB();
 
@@ -26,17 +26,27 @@ app.prepare()
     server.get('/', (req, res) => {
       app.render(req, res, '/index');
     })
-    
-    server.get('/add', (req, res) => {
-      // addOneDocument({ tourName: 'Testing 1 2 3'});
-      res.send('document added');
+
+    server.get('/add-card', (req, res) => {
+      const actualPage = '/addCard';
+      app.render(req, res, actualPage);
+      // res.send('document add page ');
     })
-    
+
+    server.get('/edit/:id', (req, res) => {
+      const actualPage = '/editCard';
+      const queryParams = { cardId: req.params.id }
+      app.render(req, res, actualPage, queryParams);
+
+      // addOneDocument({ tourName: 'Testing 1 2 3'});
+      // res.send('document edit page');
+    })
+
     server.get('/update', (req, res) => {
       updateDocument();
       res.send('document updated');
     })
-    
+
     server.get('*', (req, res) => {
       return handler(req, res);
     })

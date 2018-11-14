@@ -5,20 +5,38 @@ import config from '../../../../config/config';
 // components
 import TextInput from '../TextInput/TextInput';
 
+// styles
+import { FormSt } from './Form.styles'
+
 //interfaces
 import { HTMLElementEvent, FormControlEventTarget } from './interfaces';
-class Form extends React.Component {
+
+interface Props {
+  front?: string
+}
+
+class Form extends React.Component<Props> {
+  static defaultProps = {
+    front: ''
+  }
+
   state = {
-    question: '',
-    answer: '',
+    front: '',
+    back: '',
     tags: '',
     type: ''
   }
-  
+
+  componentWillReceiveProps(nextProps: any) {
+    if (nextProps.front !== this.props.front) {
+      this.setState(() => ({ front: nextProps.front }))
+    }
+  }
+
   handleSubmit = async (event: any) => {
     event.preventDefault();
 
-    console.log('A Question was submitted: ' + this.state.question);
+    console.log('A Question was submitted: ' + this.state.front);
 
       const res = await fetch(config.API_URL + '/add-card', {
         method: 'POST',
@@ -34,37 +52,37 @@ class Form extends React.Component {
 
   handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, inputType: string): void => {
     const input = (e.target as FormControlEventTarget);
-    
+
     this.setState(() => ({
       [inputType]: input.value
     }))
   }
 
-  handleTextAreaChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  handleTextAreaChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
     const input = (e.target as FormControlEventTarget);
     this.setState(() => ({
-      answer: input.value
+      back: input.value
     }))
   }
 
   render () {
-    const { answer, question, tags, type } = this.state;
+    const { back, front, tags, type } = this.state;
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <TextInput 
+      <FormSt onSubmit={this.handleSubmit}>
+        <TextInput
           name="Question / Front"
-          value={question}
-          InputChange={e => this.handleInputChange(e, 'question')}
+          value={front}
+          InputChange={e => this.handleInputChange(e, 'front')}
         />
 
-        <TextInput 
+        <TextInput
           name="Card Type"
           value={type}
           InputChange={e => this.handleInputChange(e, 'type')}
         />
 
-        <TextInput 
+        <TextInput
           name="tags"
           value={tags}
           InputChange={e => this.handleInputChange(e, 'tags')}
@@ -72,18 +90,18 @@ class Form extends React.Component {
 
         <label>
           <span>Answer</span>
-          <textarea 
-            name="answer" 
-            id="" 
+          <textarea
+            name="back"
+            id=""
             cols={30}
             rows={10}
-            value={answer}
+            value={back}
             onChange={this.handleTextAreaChange}
           >
           </textarea>
         </label>
         <input type="submit" value="Submit" />
-      </form>
+      </FormSt>
     )
   }
 }
