@@ -6,6 +6,6 @@ export type HTMLElementEvent<T extends HTMLElement> = Event & {
   // currentTarget: T;
 }
 
-export interface FormControlEventTarget extends EventTarget{
+export interface FormControlEventTarget extends EventTarget {
   value: string;
 }

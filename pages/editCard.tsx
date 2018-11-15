@@ -6,15 +6,29 @@ import config from '../config/config';
 import Form from '../src/client/components/Form/Form';
 import Nav from '../src/client/components/Nav/Nav';
 
-const DEFAULT_STATE = { front: '', back: '' };
+const DEFAULT_STATE = { front: '', back: '', id: '' };
 
 class EditCard extends Component {
   state = DEFAULT_STATE;
+
+  handleSubmit = async (event: any, newCard: any) => {
+    event.preventDefault();
+
+      const res = await fetch(config.API_URL + '/edit-card', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({...newCard, ...{ id: this.state.id }})
+      });
+  }
 
   async componentDidMount () {
     const paths: string[] = window.location.pathname.split('/')
     const last = paths.length - 1
     const id = paths[last];
+
+    this.setState(() => ({ id }))
 
     const res = await fetch(`${config.API_URL}/find-card`, {
       method: 'POST',
@@ -26,7 +40,6 @@ class EditCard extends Component {
 
     const { front, back } = await res.json();
     this.setState(() => ({ front, back }))
-    console.log({ front, back });
   }
 
   render () {
@@ -34,7 +47,11 @@ class EditCard extends Component {
     return (
       <div>
         <Nav />
-        <Form front={front}/>
+        <Form
+          handleSubmit={this.handleSubmit}
+          front={front}
+          back={back}
+        />
       </div>
     )
   }

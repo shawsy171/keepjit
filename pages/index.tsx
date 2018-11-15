@@ -16,7 +16,6 @@ import {
 } from './interfaces/index';
 
 const Index : StatelessPage<IndexProps> = ({ cards } : IndexProps) : JSX.Element => {
-  console.log({ cards })
   return (
     <div>
       <TitleSt>Welcome to keepJit</TitleSt>

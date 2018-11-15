@@ -7,7 +7,7 @@ let dbCollectionName = 'cards';
 
 MongoClient.connect(url + dbName, (err, client) => {
   if (err) {
-    console.log('Database Connection error: ' + err);
+    console.error('Database Connection error: ' + err);
   };
 
   dbConnection = client.db(dbName);
@@ -140,9 +140,7 @@ MongoClient.connect(url + dbName, (err, client) => {
     "image": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse"
   }
 ])
-
-// expected output: Array ["camel", "duck", "elephant"]
-  console.log(`Connected to: ${dbName} on ${url + dbName}`);
   client.close();
+  console.info(`import complete database ${dbName} on ${url + dbName} closed`);
 
 })

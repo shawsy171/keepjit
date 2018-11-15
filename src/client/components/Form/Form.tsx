@@ -9,10 +9,12 @@ import TextInput from '../TextInput/TextInput';
 import { FormSt } from './Form.styles'
 
 //interfaces
-import { HTMLElementEvent, FormControlEventTarget } from './interfaces';
+import { FormControlEventTarget } from './interfaces';
 
 interface Props {
-  front?: string
+  front?: string;
+  back?: string;
+  handleSubmit: (event: any, newCard: any) => void
 }
 
 class Form extends React.Component<Props> {
@@ -29,25 +31,8 @@ class Form extends React.Component<Props> {
 
   componentWillReceiveProps(nextProps: any) {
     if (nextProps.front !== this.props.front) {
-      this.setState(() => ({ front: nextProps.front }))
+      this.setState(() => ({ front: nextProps.front, back: nextProps.back }))
     }
-  }
-
-  handleSubmit = async (event: any) => {
-    event.preventDefault();
-
-    console.log('A Question was submitted: ' + this.state.front);
-
-      const res = await fetch(config.API_URL + '/add-card', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(this.state)
-      });
-      // const data = await res.json();
-
-    // console.log(`Show data fetched. Count: ${data}`)
   }
 
   handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, inputType: string): void => {
@@ -69,7 +54,7 @@ class Form extends React.Component<Props> {
     const { back, front, tags, type } = this.state;
 
     return (
-      <FormSt onSubmit={this.handleSubmit}>
+      <FormSt onSubmit={(event) => this.props.handleSubmit(event, this.state)}>
         <TextInput
           name="Question / Front"
           value={front}

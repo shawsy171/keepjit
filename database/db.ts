@@ -61,7 +61,7 @@ export const findDocuments = (query: DBQuery, res: any) : void => {
         });
       }
     }).catch((err) => {
-      console.log(err);
+      console.error(err);
     });
 }
 export const findOneDocument = (cardId: CardId, res: any) : void => {
@@ -75,21 +75,15 @@ export const findOneDocument = (cardId: CardId, res: any) : void => {
 
         collection.findOne({_id: new ObjectId(id)}, (err: any, result: any) => {
           if (err) {
-            return console.log('error: ' + err)
+            return console.error('error: ' + err)
           }
-          // console.log('result', result);
+
           res.send(result);
 
         })
-
-        // .then((res: any) => {
-        //    console.log('res', res);
-        // }).catch((err: any) => {
-        //   console.log(err);
-        // })
       }
     }).catch((err) => {
-      console.log(err);
+      console.error(err);
     })
 }
 
@@ -104,7 +98,7 @@ export const addOneDocument = (newDocument: newCard) : void => {
         collection.insertOne(newDocument)
       }
     }).catch((err) => {
-      console.log(err);
+      console.error(err);
     })
 }
 
@@ -123,7 +117,7 @@ export const updateDocument = () : void => {
         })
       }
     }).catch((err) => {
-      console.log(err);
+      console.error(err);
     })
 }
 
@@ -140,6 +134,6 @@ export const removeOneDocument = (cardId: CardId) : void => {
         collection.remove({_id: new ObjectId(id)})
       }
     }).catch((err) => {
-      console.log(err);
+      console.error(err);
     })
 }
