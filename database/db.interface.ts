@@ -13,7 +13,9 @@ export interface newCard {
   tags: string,
   type: string
 }
-// export interface newCard {
-//   [prop: string]: any;
-// }
+
+
+export interface editedCard extends newCard {
+  id: string
+}
 

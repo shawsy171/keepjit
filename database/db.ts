@@ -1,4 +1,10 @@
-import { DBQuery, DBConnection, newCard } from './db.interface';
+import {
+  DBQuery,
+  DBConnection,
+  newCard,
+  editedCard
+} from './db.interface';
+
 import { ObjectId, MongoClient } from 'mongodb';
 
 interface CardId {
@@ -102,7 +108,9 @@ export const addOneDocument = (newDocument: newCard) : void => {
     })
 }
 
-export const updateDocument = () : void => {
+export const updateDocument = (editedDocument: editedCard) : void => {
+  const { id , ...updateDocument } = editedDocument;
+  console.log('updateDocument', updateDocument);
   connectToMongoDB()
     .then((result) : void => {
       if (typeof result !== 'string') {
@@ -110,10 +118,8 @@ export const updateDocument = () : void => {
 
         const collection = dbConnection.collection(collectionName);
 
-        collection.update({_id: new ObjectId("5b3030a7c9759f877c3cea22")}, {
-          $set: {
-            tourName: 'Updated Name'
-          }
+        collection.update({_id: new ObjectId(id)}, {
+          $set: updateDocument
         })
       }
     }).catch((err) => {

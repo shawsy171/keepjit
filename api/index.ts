@@ -5,7 +5,8 @@ import {
   findDocuments,
   addOneDocument,
   removeOneDocument,
-  findOneDocument
+  findOneDocument,
+  updateDocument
 } from './../database/db';
 
 const router = express.Router();
@@ -37,8 +38,8 @@ router.post('/remove-card', (req: any, res: any) => {
  * edit a card
  */
 router.post('/edit-card', (req: any, res: any) => {
-  console.log("req", req.method, req.body);
-
+  // console.log("req", req.method, req.body);
+  updateDocument(req.body);
   res.send({name: 'response'});
 });
 
