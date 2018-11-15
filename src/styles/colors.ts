@@ -1,0 +1,1 @@
+export const SkyBlue	= '#87CEEB';

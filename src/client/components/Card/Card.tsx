@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import fetch from 'isomorphic-unfetch';
 import Link from 'next/link';
 
+// styles
+import { CardSt } from './Card.styles';
+
 // misc
 import config from './../../../../config/config';
 
@@ -28,7 +31,7 @@ const Card = ({ question, answer, id }: Card) => {
   }
 
   return (
-    <div>
+    <CardSt>
       <p>
         <b>id:</b> {id}
         <br/>
@@ -41,7 +44,7 @@ const Card = ({ question, answer, id }: Card) => {
       <Link href={`/edit/${id}`}>
         <button>edit card</button>
       </Link>
-    </div>
+    </CardSt>
   )
 }
 
