@@ -54,7 +54,10 @@ class Form extends React.Component<Props> {
     const { back, front, tags, type } = this.state;
 
     return (
-      <FormSt onSubmit={(event) => this.props.handleSubmit(event, this.state)}>
+      <FormSt
+        className="form"
+        onSubmit={(event) => this.props.handleSubmit(event, this.state)}
+      >
         <TextInput
           name="Question / Front"
           value={front}
@@ -92,11 +95,3 @@ class Form extends React.Component<Props> {
 }
 
 export default Form;
-
-
-// "front": "What is a uncontrolled input (react)",
-  //   "back": [],
-  //   "date": "06 may 2018",
-  //   "links": [],
-  //   "image": "image.jpg",
-  //   "tags": ["javascript", "react"]
