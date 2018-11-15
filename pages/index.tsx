@@ -32,7 +32,6 @@ const Index : StatelessPage<IndexProps> = ({ cards } : IndexProps) : JSX.Element
   )
 }
 
-// turn this in to arrow function
 Index.getInitialProps = async () => {
 
   const res = await fetch(config.API_URL + '/cards');

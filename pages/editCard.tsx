@@ -57,8 +57,5 @@ class EditCard extends Component {
   }
 }
 
-// EditCard.propTypes = {
-
-// }
 
 export default EditCard;
