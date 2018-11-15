@@ -19,6 +19,7 @@ app.prepare()
     server.use(bodyParser.urlencoded({
       extended: true
     }));
+
     server.use(bodyParser.json());
 
     server.use('/api', apiRouter);
@@ -30,21 +31,12 @@ app.prepare()
     server.get('/add-card', (req, res) => {
       const actualPage = '/addCard';
       app.render(req, res, actualPage);
-      // res.send('document add page ');
     })
 
     server.get('/edit/:id', (req, res) => {
       const actualPage = '/editCard';
       const queryParams = { cardId: req.params.id }
       app.render(req, res, actualPage, queryParams);
-
-      // addOneDocument({ tourName: 'Testing 1 2 3'});
-      // res.send('document edit page');
-    })
-
-    server.get('/update', (req, res) => {
-      updateDocument();
-      res.send('document updated');
     })
 
     server.get('*', (req, res) => {
