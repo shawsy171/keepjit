@@ -1,10 +1,11 @@
 import React from 'react';
 import fetch from 'isomorphic-unfetch';
-import config from './../config/config';
+import config from '../config/config';
 
 // components
-import Nav from './../components/Nav/Nav';
-import Card from './../components/Card/Card';
+import Nav from '../components/Nav/Nav';
+import Card from '../components/Card/Card';
+import Page from '../layouts/main';
 
 // interfaces
 import {
@@ -14,8 +15,7 @@ import {
 
 const Index : StatelessPage<IndexProps> = ({ cards } : IndexProps) : JSX.Element => {
   return (
-    <div>
-      <Nav />
+    <Page>
       {cards.map((card, idx) => (
         <Card
           key={idx}
@@ -24,7 +24,7 @@ const Index : StatelessPage<IndexProps> = ({ cards } : IndexProps) : JSX.Element
           answer={card.back}
         />
       ))}
-    </div>
+    </Page>
   )
 }
 
