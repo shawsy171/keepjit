@@ -4,7 +4,7 @@ import fetch from 'isomorphic-unfetch';
 import Link from 'next/link';
 
 // styles
-import { CardSt } from './Card.styles';
+import { ContainerSt, CardSt, CardFront, CardBack } from './Card.styles';
 
 // misc
 import config from '../../config/config';
@@ -26,25 +26,25 @@ const Card = ({ question, answer, id }: Card) => {
     });
   }
 
-  const editCard = () => {
-
-  }
-
   return (
-    <CardSt>
-      <p>
-        <b>id:</b> {id}
-        <br/>
-        <b>Question:</b> {question}
-        <br/>
-        <b>Answer:</b> {answer}
-      </p>
-      <button onClick={() => removeCard(id)}>remove card</button>
-      {/* <button onClick={() => editCard()}>edit card</button> */}
-      <Link href={`/edit/${id}`}>
-        <button>edit card</button>
-      </Link>
-    </CardSt>
+    <ContainerSt>
+      <CardSt>
+
+        <CardFront>
+          {question}
+        </CardFront>
+
+        <CardBack>
+          {answer}
+        </CardBack>
+
+      </CardSt>
+        <button onClick={() => removeCard(id)}>remove card</button>
+        {/* <button onClick={() => editCard()}>edit card</button> */}
+        <Link href={`/edit/${id}`}>
+          <button>edit card</button>
+        </Link>
+    </ContainerSt>
   )
 }
 
