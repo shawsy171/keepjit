@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import config from '../config/config';
 
 // components
-import Form from '../src/client/components/Form/Form';
-import Nav from '../src/client/components/Nav/Nav';
+import Form from '../components/Form/Form';
+import Nav from '../components/Nav/Nav';
 
 function addCard() {
 

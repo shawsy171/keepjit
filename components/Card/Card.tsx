@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { CardSt } from './Card.styles';
 
 // misc
-import config from './../../../../config/config';
+import config from '../../config/config';
 
 interface Card {
   id: string,
