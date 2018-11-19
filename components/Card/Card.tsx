@@ -39,11 +39,11 @@ const Card = ({ question, answer, id }: Card) => {
         </CardBack>
 
       </CardSt>
-        <button onClick={() => removeCard(id)}>remove card</button>
-        {/* <button onClick={() => editCard()}>edit card</button> */}
-        <Link href={`/edit/${id}`}>
-          <button>edit card</button>
-        </Link>
+      <button onClick={() => removeCard(id)}>remove card</button>
+      {/* <button onClick={() => editCard()}>edit card</button> */}
+      <Link href={`/edit/${id}`}>
+        <button>edit card</button>
+      </Link>
     </ContainerSt>
   )
 }
