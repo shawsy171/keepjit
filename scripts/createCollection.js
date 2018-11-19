@@ -9,10 +9,36 @@ MongoClient.connect(url + dbName, (err, client) => {
   if (err) {
     console.error('Database Connection error: ' + err);
   };
+  // Template
+  // {
+  // "front" : "Hpw do I",
+  // "back": "",
+  // "date" : "06 may 2018",
+  // "links" : [""],
+  // "image": "image.jpg",
+  // "tags": ["javascript"]
+  // },
+
+  Array.from(Array(10).keys());
+
+[...Array(10).keys()]
 
   dbConnection = client.db(dbName);
 
-  dbConnection.collection(dbCollectionName).insertMany([{
+  dbConnection.collection(dbCollectionName).insertMany([
+    {
+      "front" : "How to generate range of numbers",
+      "back": [
+        "Array.from(Array(10).keys());",
+        "[...Array(10).keys()]",
+        "Array(10).fill().map((v, i) => 4 + i * -2); // => [4, 2, 0, -2, -4, -6, -8, -10, -12, -14]"
+      ],
+      "date" : "06 may 2018",
+      "links" : [""],
+      "image": "image.jpg",
+      "tags": ["javascript"]
+    },
+    {
     "front": "What is a controlled input (react)",
     "back": [
       "class Form extends Component {",
