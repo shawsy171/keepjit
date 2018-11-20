@@ -1,11 +1,14 @@
 import React from 'react';
+import { FooterContentSt, FooterSt } from './Footer.css';
 
 const Footer = () => {
   const date = new Date();
   return (
-    <div>
-      <p>Copyright {date.getFullYear()}</p>
-    </div>
+    <FooterSt>
+      <FooterContentSt>
+        <p>Copyright {date.getFullYear()}</p>
+      </FooterContentSt>
+    </FooterSt>
   )
 }
 
