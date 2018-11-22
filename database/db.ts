@@ -118,7 +118,7 @@ export const updateDocument = (editedDocument: editedCard) : void => {
 
         const collection = dbConnection.collection(collectionName);
 
-        collection.update({_id: new ObjectId(id)}, {
+        collection.updateOne({_id: new ObjectId(id)}, {
           $set: updateDocument
         })
       }
