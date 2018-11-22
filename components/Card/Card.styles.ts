@@ -44,6 +44,13 @@ export const CardFront = styled(CardPanels)`
 `;
 
 export const CardBack = styled(CardPanels)`
+  max-width: 100%;
   background-color: #f349de;
   transform: rotateY( 180deg );
+
+  & pre {
+    white-space: pre-wrap;
+  }
 `;
+
+export const CardBackContent = styled

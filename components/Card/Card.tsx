@@ -35,7 +35,9 @@ const Card = ({ question, answer, id }: Card) => {
         </CardFront>
 
         <CardBack>
-          {answer}
+          <pre>
+            {answer}
+          </pre>
         </CardBack>
 
       </CardSt>
