@@ -4,7 +4,7 @@ import config from '../config/config';
 
 // components
 import Form from '../components/Form/Form';
-import Nav from '../components/Nav/Nav';
+import Page from './../layouts/main';
 
 function addCard() {
 
@@ -21,10 +21,11 @@ function addCard() {
   }
 
   return (
-    <div>
-      <Nav />
-      <Form handleSubmit={handleSubmit}/>
-    </div>
+    <Page>
+      <div>
+        <Form handleSubmit={handleSubmit}/>
+      </div>
+    </Page>
   )
 }
 

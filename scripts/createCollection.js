@@ -19,10 +19,6 @@ MongoClient.connect(url + dbName, (err, client) => {
   // "tags": ["javascript"]
   // },
 
-  Array.from(Array(10).keys());
-
-[...Array(10).keys()]
-
   dbConnection = client.db(dbName);
 
   dbConnection.collection(dbCollectionName).insertMany([

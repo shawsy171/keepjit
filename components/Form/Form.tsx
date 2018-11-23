@@ -1,12 +1,10 @@
 import React from 'react';
-import fetch from 'isomorphic-unfetch';
-import config from '../../../../config/config';
 
 // components
 import TextInput from '../TextInput/TextInput';
 
 // styles
-import { FormSt } from './Form.styles'
+import { FormSt, TextareaSt } from './Form.styles'
 
 //interfaces
 import { FormControlEventTarget } from './interfaces';
@@ -14,6 +12,7 @@ import { FormControlEventTarget } from './interfaces';
 interface Props {
   front?: string;
   back?: string;
+  links?: string;
   handleSubmit: (event: any, newCard: any) => void
 }
 
@@ -26,12 +25,17 @@ class Form extends React.Component<Props> {
     front: '',
     back: '',
     tags: '',
-    type: ''
+    type: '',
+    links: ''
   }
 
   componentWillReceiveProps(nextProps: any) {
     if (nextProps.front !== this.props.front) {
-      this.setState(() => ({ front: nextProps.front, back: nextProps.back }))
+      this.setState(() => ({
+        front: nextProps.front,
+        back: nextProps.back,
+        links: nextProps.links
+      }))
     }
   }
 
@@ -51,7 +55,7 @@ class Form extends React.Component<Props> {
   }
 
   render () {
-    const { back, front, tags, type } = this.state;
+    const { back, front, tags, type, links } = this.state;
 
     return (
       <FormSt
@@ -76,17 +80,24 @@ class Form extends React.Component<Props> {
           InputChange={e => this.handleInputChange(e, 'tags')}
         />
 
+        <TextInput
+          name="links"
+          value={links}
+          InputChange={e => this.handleInputChange(e, 'links')}
+        />
+
         <label>
           <span>Answer</span>
-          <textarea
+          <TextareaSt
             name="back"
             id=""
-            cols={30}
+            cols={100}
             rows={10}
+            wrap="off"
             value={back}
             onChange={this.handleTextAreaChange}
           >
-          </textarea>
+          </TextareaSt>
         </label>
         <input type="submit" value="Submit" />
       </FormSt>

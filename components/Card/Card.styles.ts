@@ -18,14 +18,13 @@ export const CardSt = styled.div`
   box-shadow: 5px 5px 6px 1px rgba(0,0,0,0.25);
 
   width: 100%;
-  padding-bottom: 25%; // hax for height
+  // @ts-ignore
+  padding-bottom: ${props => props.showBack ? '100%' : '25%'}; // hax for height
   position: relative;
   transition: transform 1s;
   transform-style: preserve-3d;
-
-  &:hover {
-    transform: rotateY( 180deg );
-  }
+  // @ts-ignore
+  transform: ${props => props.showBack ? 'rotateY( 180deg );' : ''};
 `;
 
 const CardPanels = styled.div`
@@ -44,8 +43,9 @@ export const CardFront = styled(CardPanels)`
 `;
 
 export const CardBack = styled(CardPanels)`
+  color: hsl(220, 14%, 71%);
   max-width: 100%;
-  background-color: #f349de;
+  background-color: hsl(220, 13%, 18%);
   transform: rotateY( 180deg );
 
   & pre {

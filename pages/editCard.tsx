@@ -5,8 +5,9 @@ import config from '../config/config';
 // components
 import Form from '../components/Form/Form';
 import Nav from '../components/Nav/Nav';
+import Page from './../layouts/main';
 
-const DEFAULT_STATE = { front: '', back: '', id: '' };
+const DEFAULT_STATE = { front: '', back: '', links: '', id: '' };
 
 class EditCard extends Component {
   state = DEFAULT_STATE;
@@ -38,21 +39,23 @@ class EditCard extends Component {
       body: JSON.stringify({id})
     })
 
-    const { front, back } = await res.json();
-    this.setState(() => ({ front, back }))
+    const { front, back, links } = await res.json();
+    this.setState(() => ({ front, back, links }))
   }
 
   render () {
-    const { front, back } = this.state
+    const { front, back, links } = this.state
     return (
-      <div>
-        <Nav />
-        <Form
-          handleSubmit={this.handleSubmit}
-          front={front}
-          back={back}
-        />
-      </div>
+      <Page>
+        <div>
+          <Form
+            handleSubmit={this.handleSubmit}
+            front={front}
+            back={back}
+            links={links}
+          />
+        </div>
+      </Page>
     )
   }
 }

@@ -3,6 +3,7 @@ import Head from 'next/head';
 
 // styles
 import RESET from '../styles/reset';
+// import hljsCss from '../styles/highlightjs';
 
 declare module 'react' {
   interface StyleHTMLAttributes<T> extends React.HTMLAttributes<T> {
