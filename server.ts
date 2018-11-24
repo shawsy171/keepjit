@@ -39,6 +39,11 @@ app.prepare()
       app.render(req, res, actualPage, queryParams);
     })
 
+    server.get('/list', (req, res) => {
+      // const actualPage = '/addCard';
+      // app.render(req, res, actualPage);
+    })
+
     server.get('*', (req, res) => {
       return handler(req, res);
     })

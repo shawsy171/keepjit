@@ -12,21 +12,22 @@ import {
   IndexProps
 } from './interfaces/index';
 
-const Index : StatelessPage<IndexProps> = ({ cards } : IndexProps) : JSX.Element => {
-  const card = cards[0]
+const List : StatelessPage<IndexProps> = ({ cards } : IndexProps) : JSX.Element => {
   return (
     <Page>
-      <Card
-        key={1}
-        id={card._id}
-        question={card.front}
-        answer={card.back}
-      />
+      {cards.map((card, idx) => (
+        <Card
+          key={idx}
+          id={card._id}
+          question={card.front}
+          answer={card.back}
+        />
+      ))}
     </Page>
   )
 }
 
-Index.getInitialProps = async () => {
+List.getInitialProps = async () => {
 
   const res = await fetch(config.API_URL + '/cards');
   const data = await res.json();
@@ -36,4 +37,4 @@ Index.getInitialProps = async () => {
   }
 }
 
-export default Index;
+export default List;

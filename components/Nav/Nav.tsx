@@ -14,6 +14,9 @@ function Nav() {
         <Link href="/addCard">
           <LinkSt>Add Card</LinkSt>
         </Link>
+        <Link href="/list">
+          <LinkSt>List Cards</LinkSt>
+        </Link>
       </ContentSt>
     </NavSt>
   )
