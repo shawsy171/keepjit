@@ -3,6 +3,7 @@ import { Container } from '../../styles/layout';
 
 export const FooterSt = styled.div`
   background-color: darkgray;
+  width: 100%;
 `;
 
 export const FooterContentSt = styled(Container)`

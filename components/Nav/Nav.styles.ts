@@ -5,6 +5,7 @@ import { SkyBlue, white } from '../../styles/colors';
 
 export const NavSt = styled.div`
   background-color: ${SkyBlue};
+  margin-bottom: 30px;
 `;
 
 export const ContentSt = styled.div`

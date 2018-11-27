@@ -45,6 +45,14 @@ content: none;
 table {
 border-collapse: collapse;
 border-spacing: 0;
-}`;
+}
+html, body {
+  height: 100%;
+}
+
+#__next { /* need for sticky footer */
+  height: 100%
+}
+`;
 
 export default RESET;

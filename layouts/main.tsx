@@ -1,4 +1,5 @@
 import React from 'react';
+import { PageSt, MainSt, FooterContainerSt } from './main.styles';
 
 // components
 import CustomHtmlHead from './head';
@@ -14,16 +15,16 @@ interface LayoutPage<P = {}> extends React.SFC<P> {
 }
 
 const Page: LayoutPage<Props>= ({ children }: Props) => (
-  <div>
-    <div className="main">
+  <PageSt>
+    <MainSt>
       <CustomHtmlHead />
       <Nav />
       { children }
-    </div>
-    <div className="footer">
+    </MainSt>
+    <FooterContainerSt>
       <Footer />
-    </div>
-  </div>
+    </FooterContainerSt>
+  </PageSt>
 )
 
 export default Page;
