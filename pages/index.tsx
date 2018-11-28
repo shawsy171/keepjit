@@ -4,8 +4,8 @@ import config from '../config/config';
 
 // components
 import Card from '../components/Card/Card';
+import ButtonNav from '../components/ButtonNav/ButtonNav';
 import Page from '../layouts/main';
-
 // interfaces
 import {
   StatelessPage,
@@ -22,6 +22,7 @@ const Index : StatelessPage<IndexProps> = ({ cards } : IndexProps) : JSX.Element
         question={card.front}
         answer={card.back}
       />
+      <ButtonNav />
     </Page>
   )
 }
