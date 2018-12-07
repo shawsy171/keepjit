@@ -7,11 +7,5 @@ A flash card site to help you remember the things you have learned
 ```bash
 npm start
 ```
-
-## save collection data
-
-mongoexport --db flashCards --collection cards --out scripts/flashtest.json
-
-## upload collection data
-mongoimport --db flashCards --collection cards --file scripts/flashtest.json
-
+## Date Format
+This uses ISO (ISO 8601) date format the save dates in the mongodb
