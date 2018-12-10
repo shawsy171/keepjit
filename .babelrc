@@ -4,7 +4,6 @@
     "@zeit/next-typescript/babel"
   ],
   "plugins": [
-    "styled-components",
-    "styled-jsx/babel"
+    "styled-components"
   ]
 }

@@ -78,18 +78,7 @@ class Card extends Component<CardProps> {
       <Link href={`/edit/${id}`}>
         <button>edit card</button>
       </Link>
-      <style jsx global>{ `
-        .hljs-keyword {
-          color: hsl(  5, 48%, 51%);
-        }
-        .hljs-string {
-          color: hsl( 95, 38%, 62%);
-        }
-        .hljs-comment {
-          color: hsl(220,  9%, 55%);
-        }
-        `}</style>
-      {/* <style jsx global>{hljsCss}</style> */}
+
     </ContainerSt>
     )
   }

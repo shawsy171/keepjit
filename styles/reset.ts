@@ -1,4 +1,7 @@
-const RESET = `/* http://meyerweb.com/eric/tools/css/reset/
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+/* http://meyerweb.com/eric/tools/css/reset/
 v2.0 | 20110126
 License: none (public domain)
 */
@@ -53,6 +56,7 @@ html, body {
 #__next { /* need for sticky footer */
   height: 100%
 }
+
 `;
 
-export default RESET;
+export default GlobalStyle;

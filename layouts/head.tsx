@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 
 // styles
-import RESET from '../styles/reset';
+import GlobalStyle from '../styles/reset';
 // import hljsCss from '../styles/highlightjs';
 
 declare module 'react' {
@@ -18,7 +18,8 @@ const CustomHtmlHead = () => (
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charSet="utf-8" />
     </Head>
-    <style jsx global>{RESET}</style>
+    <GlobalStyle />
+    {/* <style jsx>{`.head { color: blue }`}</style> */}
   </div>
 )
 
